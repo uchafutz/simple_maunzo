@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\RequestStore;
 use App\Http\Requests\RequestStoreUpdate;
 use App\Models\Store\Store;
+use Countable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 
@@ -39,13 +40,18 @@ class StoreController extends Controller
      */
     public function store(RequestStore $request)
     {
-        //
-        $data = Store::query()->create($request->input());
-        if ($data instanceof Model) {
-            toastr()->success('Data has been saved successfully!');
-            return redirect()->route('stores.index');
+
+
+        if (Store::getCount() <= 0) {
+            $data = Store::query()->create($request->input());
+            //dd($data);
+            if ($data instanceof Model) {
+
+                toastr()->success('Data has been saved successfully!');
+                return redirect()->route('stores.index');
+            }
+            toastr()->error('An error has occured please try again!');
         }
-        toastr()->error('An error has occured please try again!');
         return back();
     }
 

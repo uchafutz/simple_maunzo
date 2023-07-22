@@ -5,6 +5,7 @@ namespace App\Models\Store;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 class Store extends Model
 {
@@ -13,7 +14,16 @@ class Store extends Model
 
     public static function getList()
     {
-        return self::query()->paginate(10);
+        return self::query()->where(['user_id' => Auth::user()->id])->paginate(10);
+    }
+    public static function getStore()
+    {
+        return self::query()->where(['user_id' => Auth::user()->id])->first();
+    }
+
+    public static function getCount()
+    {
+        return self::query()->where(['user_id' => Auth::user()->id])->count();
     }
 
     public function users()

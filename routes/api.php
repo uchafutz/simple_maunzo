@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ItemController;
 use App\Http\Controllers\StoreController;
 use App\Http\Controllers\UnityController;
 use Illuminate\Http\Request;
@@ -25,4 +26,5 @@ Route::prefix('/')->name("admin.")->group(function () {
     Route::resource('stores', StoreController::class);
     Route::resource('categories', CategoryController::class);
     Route::resource('unities', UnityController::class);
+    Route::resource('items', ItemController::class);
 });

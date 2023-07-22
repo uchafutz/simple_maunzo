@@ -21,12 +21,12 @@
         <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
             <svg class="nav-icon">
               <use xlink:href="{{asset('vendors/@coreui/icons/svg/free.svg#cil-puzzle')}}"></use>
-            </svg> Invetory</a>
+            </svg> Inventory</a>
           <ul class="nav-group-items">
             <li class="nav-item"><a class="nav-link {{request()->is('*categories*')? 'active':''}}" href="{{ route('categories.index')}}"><span class="nav-icon"></span> Category</a></li>
-            <li class="nav-item"><a class="nav-link" href="base/breadcrumb.html"><span class="nav-icon"></span> Breadcrumb</a></li>
+            <li class="nav-item"><a class="nav-link {{request()->is('*items*')? 'active':''}}" href="{{ route('items.index')}}"><span class="nav-icon"></span>Item</a></li>
             <li class="nav-item"><a class="nav-link  {{request()->is('*unities*')? 'active':''}}" href="{{route('unities.index')}}"><span class="nav-icon"></span>Unit</a></li>
-            <li class="nav-item"><a class="nav-link" href="base/carousel.html"><span class="nav-icon"></span> Carousel</a></li>
+            
            
           </ul>
         </li>

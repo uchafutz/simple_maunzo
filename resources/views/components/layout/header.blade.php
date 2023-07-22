@@ -46,12 +46,16 @@
                   <svg class="icon me-2">
                     <use xlink:href="{{asset('vendors/@coreui/icons/svg/free.svg#cil-credit-card')}}"></use>
                   </svg> Payments<span class="badge badge-sm bg-secondary ms-2">0</span></a>
-                <div class="dropdown-divider"></div><a class="dropdown-item" href="#">
+                <div class="dropdown-divider"></div><a class="dropdown-item" href="{{ route('logout')}}"  onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
                  
                   <svg class="icon me-2">
                     <use xlink:href="{{asset('vendors/@coreui/icons/svg/free.svg#cil-account-logout')}}"></use>
                   </svg> Logout</a>
               </div>
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                @csrf
+              </form>
             </li>
           </ul>
         </div>

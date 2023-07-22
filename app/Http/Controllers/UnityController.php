@@ -17,7 +17,7 @@ class UnityController extends Controller
         $unities = Unity::getList();
         if ($request->wantsJson()) {
             return response([
-                "unities"
+                "data" => $unities
             ], 200);
         }
         return view("admin.unity.index", compact('unities'));
